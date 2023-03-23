@@ -37,7 +37,7 @@ int main(void)
 			}
 		}
 	}
-	putchar(\n');
+	putchar('\n');
 
 	return (0);
 }
