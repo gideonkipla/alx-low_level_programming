@@ -1,8 +1,13 @@
 #include "main.h"
 
 /**
- * main - check the code.
- *print_alphabet - print lowercase alphabet
- * Return: Always 0.
+ * main - check the code
+ *
+ * Return: Always 0 (Success)
  */
-void print_alphabet(void);
+int main(void)
+{
+	print_alphabet();
+
+	return (0);
+}
