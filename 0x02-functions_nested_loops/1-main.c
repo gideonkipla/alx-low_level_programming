@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	printf("Holberton School");
+	print("lowercase alphabet");
 	return (0);
 }
