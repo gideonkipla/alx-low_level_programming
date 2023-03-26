@@ -3,10 +3,12 @@
 /**
  * main - check the code
  *
+ * print_alphabet - prints lowercase alphabet
+ * 
  * Return: Always 0 (Success)
  */
-int main(void)
+void print_alphabet(void);
 {
-	print("lowercase alphabet");
+	print_alphabet();
 	return (0);
 }
