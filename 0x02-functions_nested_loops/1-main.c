@@ -1,14 +1,12 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * main - Entry point of the program
  *
- * print_alphabet - prints lowercase alphabet
- * 
  * Return: Always 0 (Success)
  */
-void print_alphabet(void);
+int main(void)
 {
-	print_alphabet();
-	return (0);
+    print_alphabet();
+    return (0);
 }
