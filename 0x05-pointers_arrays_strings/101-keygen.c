@@ -4,14 +4,15 @@
 
 #define PASSWORD_LENGTH 10
 
-int main(void)
+'int main(void)'
 {
     char password[PASSWORD_LENGTH + 1] = {'\0'};
     char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    int i;
 
     srand(time(NULL));
 
-    for (int i = 0; i < PASSWORD_LENGTH; i++) {
+    for (i = 0; i < PASSWORD_LENGTH; i++) {
         password[i] = charset[rand() % (sizeof(charset) - 1)];
     }
 
