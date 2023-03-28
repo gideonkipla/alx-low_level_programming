@@ -1,24 +1,21 @@
-import random
-import string
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-PASSWORD_LENGTH = 10
+#define PASSWORD_LENGTH 10
 
+int main(void)
+{
+    char password[PASSWORD_LENGTH + 1] = {'\0'};
+    char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-def generate_password(length):
-    """
-    Generate a random password of the given length.
+    srand(time(NULL));
 
-    Args:
-        length: An integer specifying the length of the password.
+    for (int i = 0; i < PASSWORD_LENGTH; i++) {
+        password[i] = charset[rand() % (sizeof(charset) - 1)];
+    }
 
-    Returns:
-        A string containing a random password.
-    """
-    charset = string.ascii_letters + string.digits
-    password = ''.join(random.choice(charset) for i in range(length))
-    return password
+    printf("%s\n", password);
 
-
-if __name__ == '__main__':
-    password = generate_password(PASSWORD_LENGTH)
-    print(password)
+    return 0;
+}
