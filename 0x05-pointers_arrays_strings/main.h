@@ -18,7 +18,7 @@ int _putchar(char c);
   * Return: void
   */
 
-void reset_to_98(int *n)
+void reset_to_98(int *n);
 
 /**
   * swap_int - Swaps the values of two integers
@@ -29,7 +29,7 @@ void reset_to_98(int *n)
   * Return: void
   */
 
-void swap_int(int *a, int *b)
+void swap_int(int *a, int *b);
 
 /**
   * _strlen - Returns the length of a string
@@ -38,7 +38,7 @@ void swap_int(int *a, int *b)
   * Return: String length
   */
 
-int _strlen(char *s)
+int _strlen(char *s);
 
 /**
   * _puts - Prints a string
@@ -46,7 +46,8 @@ int _strlen(char *s)
   *
   * Return: void
   */
-void _puts(char *str)
+
+void _puts(char *str);
 
 /**
   * print_rev - Prints a string in reverse
@@ -55,7 +56,7 @@ void _puts(char *str)
   * Return: void
   */
 
-void print_rev(char *s)
+void print_rev(char *s);
 
 /**
   * rev_string - Reverses a string
@@ -64,7 +65,7 @@ void print_rev(char *s)
   * Return: void
   */
 
-void rev_string(char *s)
+void rev_string(char *s);
 
 /**
   * puts2 - Prints every other character of a string
@@ -73,7 +74,7 @@ void rev_string(char *s)
   * Return: void
   */
 
-void puts2(char *str)
+void puts2(char *str);
 
 /**
   * puts_half - Prints half of a string
@@ -82,7 +83,7 @@ void puts2(char *str)
   * Return: void
   */
 
-void puts_half(char *str)
+void puts_half(char *str);
 
 /**
   * print_array - Prints n elements of an array of integers
@@ -92,7 +93,7 @@ void puts_half(char *str)
   * Return: void
   */
 
-void print_array(int *a, int n)
+void print_array(int *a, int n);
 
 /**
   * _strcpy - Copy a string
@@ -102,6 +103,6 @@ void print_array(int *a, int n)
   * Return: the pointer to dest
   */
 
-char *_strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src);
 
 #endif
