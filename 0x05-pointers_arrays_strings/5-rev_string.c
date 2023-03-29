@@ -37,7 +37,7 @@ int main(void)
 	char s[11] = "Holberton!";
 
 	rev_string(s);
-	printf("%s\n%s\n", s, s); // print original and reversed strings with newline
+	printf("%s\n%s\n", s, s); /* print original and reversed strings with newline */
 
 	return (0);
 }
