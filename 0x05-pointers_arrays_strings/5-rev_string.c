@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * rev_string - Reverses a string
@@ -30,14 +29,4 @@ void rev_string(char *s)
 		s[i] = *(--a);
 		*a = aux;
 	}
-}
-
-int main(void)
-{
-	char s[11] = "Holberton!";
-
-	rev_string(s);
-	printf("%s\n%s\n", s, s); /* print original and reversed strings with newline */
-
-	return (0);
 }
