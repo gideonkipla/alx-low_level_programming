@@ -1,15 +1,14 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
-  * rev_string - Reverses a string
-  * @s: The string to be modified
-  *
-  * Return: void
-  */
+ * rev_string - Reverses a string
+ * @s: The string to be modified
+ *
+ * Return: void
+ */
 void rev_string(char *s)
 {
-	int i, c, k;
+	int i, c = 0, k = 0;
 	char *a, aux;
 
 	a = s;
@@ -19,16 +18,15 @@ void rev_string(char *s)
 		c++;
 	}
 
-	for (k = 1; k < c; k++)
+	for (k = 0; k <= c; k++)
 	{
 		a++;
 	}
 
-	for (i = 0; i < (c / 2); i++)
+	for (i = 0; i <= (c / 2 - 1); i++)
 	{
 		aux = s[i];
-		s[i] = *a;
+		s[i] = *(--a);
 		*a = aux;
-		a--;
 	}
 }
