@@ -71,6 +71,13 @@ int is_prime_number(int n);
 
 int is_palindrome(char *s);
 
+/**
+ * wildcmp - compare if string with wildcard mattches
+ * @s1: one string
+ * @s2: one string
+ * Return: 1 if matched, 0 if not
+ */
+
 int wildcmp(char *s1, char *s2);
 
 #endif
