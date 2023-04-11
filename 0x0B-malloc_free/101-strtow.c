@@ -1,75 +1,64 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
-* wordCounterRec - count num of words recursively
-* @str: pointer to char
-* @i: current index
-* Return: number of words
-**/
-int wordCounterRec(char *str, int i)
-{
-	if (str[i] == '\0')
-		return (0);
-	if (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0')
-		return (1 + wordCounterRec(str, i + 1));
-	return (wordCounterRec(str, i + 1));
-}
-/**
-* word_counter - counts number of words in 1d array of strings
-* @str: pointer to char
-* Return: number of words
-**/
-int word_counter(char *str)
-{
-	if (str[0] != ' ')
-		return (1 + wordCounterRec(str, 0));
-	return (wordCounterRec(str, 0));
-}
-/**
-* strtow - splits a string into words.
-* @str: string to be splitted
-* Return: pointer to an array of strings (words) or null
-**/
+ * strtow - concatenates all the arguments of your program
+ *@str: string
+ *@av: arguments
+ * Return: a pointer to a new string
+ */
 char **strtow(char *str)
 {
-	char **strDup;
-	int i, n, m, words;
+	int i, w, j, k, count, m, wordf;
+	char **p;
+	char *x;
 
-	if (str == NULL || str[0] == 0)
-		return (NULL);
-	words = word_counter(str);
-	if (words < 1)
-		return (NULL);
-	strDup = malloc(sizeof(char *) * (words + 1));
-	if (strDup == NULL)
-		return (NULL);
+	w = 0;
+	j = 0;
 	i = 0;
-	while (i < words && *str != '\0')
+	count = 0;
+	if (*str == '\0' || str == NULL)
+		return (NULL);
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (*str != ' ')
+		if (str[i] == ' ' && (str[i + 1] != ' ' || str[i + 1] == '\0'))
+			w++;
+	}
+	p = (char **)malloc((w + 1) * sizeof(char *));
+	if (p == NULL)
+		return (NULL);
+	for (wordf = 0; str[wordf] && j <= w; wordf++)
+	{
+		count = 0;
+		if (str[wordf] != ' ')
 		{
-			n = 0;
-			while (str[n] != ' ')
-				n++;
-			strDup[i] = malloc(sizeof(char) * (n + 1));
-			if (strDup[i] == NULL)
+			for (i = wordf ; str[i] != '\0'; i++)
 			{
-				while (--i >= 0)
-					free(strDup[--i]);
-				free(strDup);
+				if (str[i] == ' ')
+					break;
+				count++;
+			}
+			*(p + j) = (char *)malloc((count + 1) * sizeof(char));
+			if (*(p + j) == NULL)
+			{
+				for (k = 0; k <= j; k++)
+				{
+					x = p[k];
+					free(x);
+				}
+				free(p);
 				return (NULL);
 			}
-			m = 0;
-			while (m < n)
+			for (m = 0; wordf < i; wordf++)
 			{
-				strDup[i][m] = *str;
-				m++, str++;
+				p[j][m] = str[wordf];
+				m++;
 			}
-			strDup[i][m] = '\0';
-			i++;
+			p[j][m] = '\0';
+			j++;
 		}
-		str++;
 	}
-	strDup[i] = '\0';
-	return (strDup);
+	p[j] = NULL;
+	return (p);
 }
