@@ -1,5 +1,17 @@
 #include "main.h"
-void _puts(char *s)
+
+/**
+  * _puts - Prints a string
+  * @str: The string to print
+  *
+  * Return: void
+  */
+void _puts(char *str)
 {
-	return (0);
+	for (; *str != '\0'; str++)
+	{
+		_putchar(*str);
+	}
+
+	_putchar('\n');
 }
