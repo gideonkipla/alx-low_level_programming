@@ -1,47 +1,63 @@
-#include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include "main.h"
 
 /**
-* *argstostr - concatenates all arguements to the program
-* @ac: arguement count
-* @av: pointer to arguements
-* Return: pointer to new space in memory or null
-**/
+ * _strlen - returns the length of a string
+ * @s: string
+ * Return: length
+ */
+
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+		len++, s++;
+
+	return (len);
+}
+
+/**
+ * argstostr - concatenates all the arguments of your program
+ * @ac: argc
+ * @av: arguments
+ * Return: pointer to array
+ */
+
 char *argstostr(int ac, char **av)
 {
-	char *strDup;
-	int i, j, k, size;
+	char *s;
+	int len = 0, i, j, k = 0;
 
-	if (ac == 0 || av == NULL)
+	if (ac == 0 || av == NULL) /* validate input */
 		return (NULL);
 
-	size = 0;
-	/* count the number of chars in each string */
+	/* find length to malloc */
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			size++;
-		size++;
+		len += _strlen(av[i]);
 	}
-	size++;
+	len += (ac + 1); /* add space for newlines and null terminator */
 
-	 /* allocate memory for total number of chars and
-	 * new line for each word
-	 */
-	strDup = malloc(sizeof(char) * size);
+	/* allocate memory and free if error */
+	s = malloc(len * sizeof(char));
 
-	if (strDup == NULL)
+	if (s == NULL)
+	{
+		free(s);
 		return (NULL);
+	}
 
-	k = 0;
+	/* insert each arg into *str */
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
+		for (j = 0; j < _strlen(av[i]); j++)
 		{
-			strDup[k++] = av[i][j];
+			s[k++] = av[i][j];
 		}
-		strDup[k++] = '\n';
+		s[k++] = '\n';
 	}
-	strDup[k] = '\0';
-	return (strDup);
+
+	return (s);
 }
