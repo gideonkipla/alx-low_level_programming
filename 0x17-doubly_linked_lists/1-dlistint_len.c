@@ -1,38 +1,21 @@
 #include "lists.h"
 
 /**
- * add_dnodeint - function to add node to the beginning of a dlistint_t list
- * @head: input pointer to head of dlistint_t list
- * @n: input data to insert in new node
- * Return: pointer to newly added element or NULL if failed
+ * dlistint_len - function to return count of elements of a dlistint_t list
+ * @h: input head of dlistint_t list
+ * Return: number of nodes in dlistint_t list
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+size_t dlistint_len(const dlistint_t *h)
 {
-	dlistint_t *newnode;
+	size_t count = 0;
+	dlistint_t *temp = (dlistint_t *)h;
 
-	/* malloc out size of newnode and, if successful, set as single node */
-	newnode = malloc(sizeof(dlistint_t));
-	if (newnode == NULL)
-		return (NULL);
-	newnode->n = n;
-	newnode->prev = NULL;
-	newnode->next = NULL;
-
-	/* check for no list (head == NULL) & set newnode to be only element */
-	if (head == NULL)
+	if (h == NULL)
+		return (0);
+	while (temp != NULL)
 	{
-		head = &newnode;
-		return (newnode);
+		temp = temp->next;
+		count++;
 	}
-	/* check for empty list (*head == NULL) & set newnode to only element */
-	if (*head == NULL)
-	{
-		*head = newnode;
-		return (newnode);
-	}
-	/* set newnode to point to start of list & head to point to newnode */
-	newnode->next = *head;
-	(*head)->prev = newnode;
-	*head = newnode;
-	return (newnode);
+	return (count);
 }
